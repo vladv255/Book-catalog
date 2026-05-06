@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Catalog</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Book Catalog</h1>
+        <p>Take a look on your favorite books</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="search-area">
+        <h2>Find book</h2>
+        <p>Enter data to search in the Open Library database</p>
+        <div class="search-form">
+          <input type="text" id="search-input" placeholder="Seacrh for books by title or author...">
+          <button id="search-btn">Search</button>
+        </div>
+      </section>
+      
+      <div class="content-layout">
+        <section class="results-container">
+          <div id="book-results" class="book-grid">
+
+          </div>
+        </section>
+
+        <aside class="favorites-sidebar">
+          <h3>Favorites (<span id="fav-count">0</span>)</h3>
+          <div id="favorites-list" class="fav-list">
+
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Powered by <a href="https://openlibrary.org" target="_blank">Open Library</a></p>
+    </footer>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
