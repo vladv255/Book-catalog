@@ -45,10 +45,20 @@ export function renderFavs (favs) {
         return;
     }
 
-    favContainer.innerHTML = favs.map(book => `
-        <div class="fav-item">
-            <span class="fav-item_title">${book.title}</span>
-            <button class="btn-remove" data-id="${book.key}">Remove</button>
-        </div>
-    `).join('');
+    favContainer.innerHTML = favs.map(book => {
+        const favCoverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
+                                         : 'https://placeholder.com';
+        const authors = book.author_name ? book.author_name.join(', ') : 'Unknown author';
+        const year = book.first_publish_year || '-';                                 
+        return `
+            <div class="fav-item">
+                <img class="fav-img" src="${favCoverUrl}" alt="${book.title}" loading="lazy">
+                <div class="fav-info">
+                    <div class="fav-item_title">${book.title}</div>
+                    <div class="fav-item_author">${authors}</div>
+                    <div class="fav-item_year">${year}</div>
+                </div>    
+                <button class="btn-remove" data-id="${book.key}">Remove</button>
+            </div>
+        `}).join('');
 }
